@@ -1,0 +1,4 @@
+/* Editor-only wrapper so the card preview has breathing room */
+.pcpi-agency-card-editor-wrap {
+    min-height: 48px;
+}

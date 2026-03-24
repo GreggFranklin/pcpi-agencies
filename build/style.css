@@ -1,0 +1,72 @@
+/* ─── PCPI Agency Card ────────────────────────────────────────────────────── */
+
+.pcpi-agency-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 0;
+    max-width: 480px;
+    background: #fff;
+    font-family: inherit;
+    line-height: 1.45;
+}
+
+/* Override theme paragraph margins without !important by being specific */
+.pcpi-agency-card .pcpi-agency-card__info p {
+    margin: 0 0 2px;
+    padding: 0;
+}
+
+/* ── Logo ─────────────────────────────────────────────────────────────────── */
+
+.pcpi-agency-card__logo-wrap {
+    flex-shrink: 0;
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pcpi-agency-card__logo {
+    width: 90px;
+    height: auto;
+    max-height: 90px;
+    object-fit: contain;
+    display: block;
+}
+
+/* ── Info block ───────────────────────────────────────────────────────────── */
+
+.pcpi-agency-card__info {
+    flex: 1;
+    min-width: 0; /* prevent flex overflow on long addresses */
+}
+
+.pcpi-agency-card__name {
+    font-weight: 700;
+    font-size: 17px;
+    color: #111;
+}
+
+.pcpi-agency-card__address {
+    font-size: 17px;
+    color: #333;
+}
+
+/* Each address line rendered as its own block */
+.pcpi-agency-card__address span {
+    display: block;
+}
+
+.pcpi-agency-card__phone {
+    font-size: 17px;
+    color: #333;
+}
+
+.pcpi-agency-card__website {
+    font-size: 17px;
+}
+
+.pcpi-agency-card__website a {
+    color: inherit;
+}
