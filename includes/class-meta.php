@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class PCPI_Agencies_Meta {
 
     /** All string keys — registered for REST/back-compat regardless of UI visibility. */
-    private array $string_fields = [ 'address', 'city', 'state', 'phone', 'website' ];
+    private array $string_fields = [ 'address', 'city', 'state', 'phone', 'website', 'contact', 'email' ];
 
     public function init(): void {
         add_action( 'init',                  [ $this, 'register_meta'        ] );
@@ -164,10 +164,22 @@ class PCPI_Agencies_Meta {
         wp_nonce_field( 'pcpi_agency_save_meta', 'pcpi_agency_meta_nonce' );
 
         $address  = (string) get_post_meta( $post->ID, '_pcpi_address', true );
+        $contact  = (string) get_post_meta( $post->ID, '_pcpi_contact', true );
+        $email    = (string) get_post_meta( $post->ID, '_pcpi_email', true );
         $phone    = (string) get_post_meta( $post->ID, '_pcpi_phone',   true );
         $logo_id  = (int)    get_post_meta( $post->ID, '_pcpi_logo_id', true );
         $logo_url = $logo_id ? wp_get_attachment_image_url( $logo_id, 'medium' ) : '';
         ?>
+        <div class="pcpi-field">
+            <label for="pcpi_contact">Agency Contact</label>
+            <input type="text" id="pcpi_contact" name="pcpi_contact" value="<?php echo esc_attr( $contact ); ?>">
+        </div>
+
+        <div class="pcpi-field">
+            <label for="pcpi_email">Email Address</label>
+            <input type="email" id="pcpi_email" name="pcpi_email" value="<?php echo esc_attr( $email ); ?>">
+        </div>
+
         <div class="pcpi-field">
             <label for="pcpi_address">Address</label>
             <textarea id="pcpi_address" name="pcpi_address"><?php echo esc_textarea( $address ); ?></textarea>
@@ -211,6 +223,18 @@ class PCPI_Agencies_Meta {
         }
         if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
         if ( ! current_user_can( 'edit_post', $post_id ) ) return;
+
+        update_post_meta(
+            $post_id,
+            '_pcpi_contact',
+            sanitize_text_field( wp_unslash( $_POST['pcpi_contact'] ?? '' ) )
+        );
+
+        update_post_meta(
+            $post_id,
+            '_pcpi_email',
+            sanitize_email( wp_unslash( $_POST['pcpi_email'] ?? '' ) )
+        );
 
         update_post_meta(
             $post_id,
