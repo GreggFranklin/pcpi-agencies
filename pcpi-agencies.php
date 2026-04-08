@@ -1,7 +1,6 @@
 <?php
 /**
  * Plugin Name:       _PCPI Agencies
- * Plugin URI:        https://pcpolygraph.com
  * Description:       Registers the Agency custom post type, meta fields, REST fields, Gutenberg block, and shortcode.
  * Version:           2.2.1
  * Author:            Gregg Franklin, Marc Benzakein
