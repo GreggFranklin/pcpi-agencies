@@ -1,0 +1,49 @@
+/* ─── PCPI Admin Meta Box ───────────────────────── */
+
+#pcpi_agency_details {
+    padding: 12px 0;
+}
+
+/* Field wrapper */
+#pcpi_agency_details .pcpi-field {
+    margin-bottom: 18px;
+}
+
+/* Labels */
+#pcpi_agency_details .pcpi-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1d2327;
+}
+
+/* Inputs */
+#pcpi_agency_details .pcpi-field input,
+#pcpi_agency_details .pcpi-field textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Textarea */
+#pcpi_agency_details .pcpi-field textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* Logo preview */
+#pcpi-logo-preview {
+    display: block;
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#pcpi-logo-preview.pcpi-hidden {
+    display: none;
+}
+
+/* Buttons spacing */
+#pcpi_agency_details .button {
+    margin-right: 8px;
+}
