@@ -117,12 +117,12 @@ class PCPI_Agencies_Meta {
         );
 
         wp_enqueue_script(
-            'pcpi-agency-admin',
-            PCPI_AGENCIES_URL . 'assets/js/admin.js',
-            [ 'jquery' ],
-            PCPI_AGENCIES_VERSION,
-            true
-        );
+    'pcpi-agency-admin',
+    PCPI_AGENCIES_URL . 'assets/js/admin.js',
+    [ 'jquery', 'media-editor', 'media-upload', 'wp-mediaelement' ],
+    PCPI_AGENCIES_VERSION,
+    true
+);
     }
 
     public function render_meta_box( WP_Post $post ): void {
@@ -192,7 +192,7 @@ class PCPI_Agencies_Meta {
         update_post_meta( $post_id, '_pcpi_contact', sanitize_text_field( wp_unslash( $_POST['pcpi_contact'] ?? '' ) ) );
         update_post_meta( $post_id, '_pcpi_email', sanitize_email( wp_unslash( $_POST['pcpi_email'] ?? '' ) ) );
         update_post_meta( $post_id, '_pcpi_address', sanitize_textarea_field( wp_unslash( $_POST['pcpi_address'] ?? '' ) ) );
-        update_post_meta( $post_id, '_pcpi_phone', sanitize_text_field( wp_unslash( $_POST['pcpi_phone'] ?? '' ) ) );
+        update_post_meta( $post_id, '_pcpi_phone', preg_replace( '/[^0-9\(\)\-\s]/', '', wp_unslash( $_POST['pcpi_phone'] ?? '' ) ) );
 
         $logo_id = absint( $_POST['pcpi_logo_id'] ?? 0 );
 
