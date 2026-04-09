@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       _PCPI Agencies
  * Description:       Registers the Agency custom post type, meta fields, REST fields, Gutenberg block, and shortcode.
- * Version:           2.2.1
+ * Version:           2.2.2
  * Author:            Gregg Franklin, Marc Benzakein
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -14,7 +14,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'PCPI_AGENCIES_VERSION', '2.2.0' );
+define( 'PCPI_AGENCIES_VERSION', '2.2.2' );
 define( 'PCPI_AGENCIES_PATH',    plugin_dir_path( __FILE__ ) );
 define( 'PCPI_AGENCIES_URL',     plugin_dir_url( __FILE__ ) );
 
